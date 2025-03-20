@@ -1,12 +1,16 @@
 import { describe, it, expect } from "@jest/globals";
-import algorithmA from "../Algorithms/algorithmA";
+import algorithmA, { alphChar } from "../Algorithms/algorithmA";
+
   // Teststrategi:
   // 1. Testar att funktionen returnerar en array.
-  // 2. Testar felplacerade bokstäver ("misplaced").
-  // 3. Testar alla bokstäver på rätt plats ("correct").
-  // 4. Testar helt felaktiga bokstäver ("incorrect").
-  // 5. Testar upprepade bokstäver.
-  // 6. Testar att funktionen returnerar ett objekt.
+  // 2. Testar att funktionen returnerar ett objekt.
+  // 3. Testar felplacerade bokstäver ("misplaced").
+  // 4. Testar alla bokstäver på rätt plats ("correct").
+  // 5. Testar helt felaktiga bokstäver ("incorrect").
+  // 6. Testar upprepade bokstäver så att det ger fel när rätt bokstäver redan är rättade.
+  // 7. Testar att funktionen alphanChar returnerar true om input är en bokstav och false om input är något annat.
+  // 8. Testar att funktionen alphanChar returnerar false om input är en siffra.
+
 describe('algorithmA', () => {
   it('Funktionen returnerar en array', () => {
     const result = algorithmA('ABC', 'ABC');
@@ -40,6 +44,17 @@ describe('algorithmA', () => {
     ]);
   });
 
+  it('Upprepade bokstäver', () => {
+    const result = algorithmA('Musik', 'Mamma');
+    expect(result).toEqual([
+      { letter: 'm', result: 'correct' },
+      { letter: 'u', result: 'incorrect' },
+      { letter: 's', result: 'incorrect' },
+      { letter: 'i', result: 'incorrect' },
+      { letter: 'k', result: 'incorrect' },
+    ]);
+  });
+
   it('Helt felaktiga bokstäver', () => {
     const result = algorithmA('Panna', 'Boris');
     expect(result).toEqual([
@@ -51,4 +66,23 @@ describe('algorithmA', () => {
     ]);
   });
 
+});
+
+describe('alphaChar (kontrollerar att det är alfabetiska tecken)' , () => {
+
+  it('Returnerar true för endast alfabetiska tecken', () => {
+    expect(alphChar('Somna')).toBe(true);
+    expect(alphChar('skrik')).toBe(true);
+    expect(alphChar('LILLA')).toBe(true);
+    expect(alphChar('prutt')).toBe(true);
+    expect(alphChar('glada')).toBe(true);
+  });
+
+  it('Returnerar false för icke alfabetiska tecken', () => {
+    expect(alphChar('M4mma')).toBe(false);
+    expect(alphChar('heja!')).toBe(false);
+    expect(alphChar(' ')).toBe(false);
+    expect(alphChar('Brav.')).toBe(false);
+    expect(alphChar('$agan')).toBe(false);
+  });
 });
