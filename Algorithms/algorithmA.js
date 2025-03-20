@@ -4,7 +4,7 @@ export default function algorithmA(guess, correct) {
     correct = correct.toLowerCase();
     
   if (!alphChar(guess) || !alphChar(correct)) {
-    throw new Error('Invalid input'); 
+    throw new Error('Invalid input, only alphabetic characters allowed'); 
   }
 
     const result = [];
