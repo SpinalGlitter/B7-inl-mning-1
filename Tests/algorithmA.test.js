@@ -34,9 +34,9 @@ describe('algorithmA', () => {
   });
 
   it('Alla bokstäver korrekta', () => {
-    const result = algorithmA('BAJSA', 'bajsa');
+    const result = algorithmA('MAJSA', 'majsa');
     expect(result).toEqual([
-        { letter: 'b', result: 'correct' },
+        { letter: 'm', result: 'correct' },
         { letter: 'a', result: 'correct' },
         { letter: 'j', result: 'correct' },
         { letter: 's', result: 'correct' },
