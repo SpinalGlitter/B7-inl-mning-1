@@ -1,15 +1,30 @@
 import { describe, it, expect } from "@jest/globals";
 import algorithmA, { alphChar } from "../Algorithms/algorithmA";
 
-  // Teststrategi:
-  // 1. Testar att funktionen returnerar en array.
-  // 2. Testar att funktionen returnerar ett objekt.
-  // 3. Testar felplacerade bokstäver ("misplaced").
-  // 4. Testar alla bokstäver på rätt plats ("correct").
-  // 5. Testar helt felaktiga bokstäver ("incorrect").
-  // 6. Testar upprepade bokstäver så att det ger fel när rätt bokstäver redan är rättade.
-  // 7. Testar att funktionen alphanChar returnerar true om input är en bokstav och false om input är något annat.
-  // 8. Testar att funktionen alphanChar returnerar false om input är en siffra.
+/* Denna funktion definierar reglerna för den feedback spelet ger när spelaren gissar ett ord. Den ska uppfylla följande kriterier:
+
+ Inputs: Två ord (två textsträngar)
+ Ett ord som är gissningen
+ Ett ord som är det korrekta ordet
+
+ Funktionalitet: Kontrollera vilka bokstäver från det ena ordet som förekommer i det andra och i så fall var
+ Output: En array med objekt, ett för varje bokstav i samma ordning som de förekommer i det gissade ordet, med följande attribut:
+ letter (bokstaven)
+ result (ett av följande värden)
+ ‘incorrect’: Finns inte med i det andra ordet
+ ‘misplaced’: Finns med i det andra ordet, men på annan plats
+ ‘correct’: Korrekt plats i det andra ordet 
+
+
+   Teststrategi:
+   1. Testar att funktionen returnerar en array.
+   2. Testar att funktionen returnerar ett objekt.
+   3. Testar felplacerade bokstäver ("misplaced").
+   4. Testar alla bokstäver på rätt plats ("correct").
+   5. Testar helt felaktiga bokstäver ("incorrect").
+   6. Testar upprepade bokstäver så att det ger fel när rätt bokstäver redan är rättade.
+   7. Testar att funktionen alphChar returnerar true om input är en bokstav och false om input är något annat.
+   8. Testar att funktionen alphChar returnerar false om input är en siffra.*/
 
 describe('algorithmA', () => {
   it('Funktionen returnerar en array', () => {
