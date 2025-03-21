@@ -83,7 +83,7 @@ describe('algorithmA', () => {
 
 });
 
-describe('alphaChar (kontrollerar att det är alfabetiska tecken)' , () => {
+describe('alphChar (kontrollerar att det är alfabetiska tecken)' , () => {
 
   it('Returnerar true för endast alfabetiska tecken', () => {
     expect(alphChar('Somna')).toBe(true);
